@@ -34,7 +34,7 @@ def main():
         
         match new_command:
             case "type":
-                if parts[0] == "exit" or parts[0] == "echo":
+                if parts[0] == "exit" or parts[0] == "echo" or parts[0]== "type":
                     print(f"{parts[0]} is a shell builtin")
                 else:
                     sentence = " ".join(parts)
