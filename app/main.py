@@ -3,7 +3,7 @@ import os
 
 def main():
     # Uncomment this block to pass the first stage
-    
+    # print(os.environ)
     # I used a while statment which is basically an infinite loop but we can use a recursive algorithm
     while True:
         sys.stdout.write("$ ")
@@ -14,6 +14,7 @@ def main():
         
         path = os.environ["PATH"]
         new_command, *parts = command.split(" ")
+        fullpath = path + "/" + new_command
         # new_command = parts[0]
         
         # if new_command == "echo":
@@ -37,7 +38,7 @@ def main():
             case "type":
                 if parts[0] == "exit" or parts[0] == "echo" or parts[0]== "type":
                     print(f"{parts[0]} is a shell builtin")
-                elif parts[0] in path:
+                elif parts[0] in fullpath:
                     print(f"{parts[0]} is {path}")
                 else:
                     sentence = " ".join(parts)
