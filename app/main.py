@@ -1,5 +1,6 @@
 import sys
-import os
+# import os
+import shutil
 
 def main():
     # Uncomment this block to pass the first stage
@@ -12,11 +13,9 @@ def main():
         if len(command) == 0:
             continue
         
-        path = os.environ["PATH"]
+        # path = os.environ["PATH"]
         new_command, *parts = command.split(" ")
-        fullpath = path + "/" + new_command
-        # new_command = parts[0]
-        
+        check_file = shutil.which(new_command)
         # if new_command == "echo":
         #     sentence = ""
         #     for i in range (1, len(parts)):
@@ -38,8 +37,8 @@ def main():
             case "type":
                 if parts[0] == "exit" or parts[0] == "echo" or parts[0]== "type":
                     print(f"{parts[0]} is a shell builtin")
-                elif parts[0] in fullpath:
-                    print(f"{parts[0]} is {path}")
+                elif check_file is not None:
+                    print(f"{parts[0]} is {check_file}")
                 else:
                     sentence = " ".join(parts)
                     print(f"{sentence}: not found")
