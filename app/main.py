@@ -1,7 +1,6 @@
 import sys
 
-
-def main():
+def main(path=""):
     # Uncomment this block to pass the first stage
     
     # I used a while statment which is basically an infinite loop but we can use a recursive algorithm
@@ -36,6 +35,8 @@ def main():
             case "type":
                 if parts[0] == "exit" or parts[0] == "echo" or parts[0]== "type":
                     print(f"{parts[0]} is a shell builtin")
+                elif len(path) > 0 and parts[0] in path:
+                    print(f"{parts[0]} is {path}")
                 else:
                     sentence = " ".join(parts)
                     print(f"{sentence}: not found")
