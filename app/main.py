@@ -15,7 +15,7 @@ def main():
         
         # path = os.environ["PATH"]
         new_command, *parts = command.split(" ")
-        check_file = shutil.which(new_command)
+        # check_file = shutil.which(new_command)
         # if new_command == "echo":
         #     sentence = ""
         #     for i in range (1, len(parts)):
@@ -35,6 +35,7 @@ def main():
         
         match new_command:
             case "type":
+                check_file = shutil.which(parts[0])
                 if parts[0] == "exit" or parts[0] == "echo" or parts[0]== "type":
                     print(f"{parts[0]} is a shell builtin")
                 elif check_file is not None:
@@ -43,7 +44,7 @@ def main():
                     sentence = " ".join(parts)
                     print(f"{sentence}: not found")
             case "exit":
-                break
+                sys.exit(0)
             case "echo":
                 # we join the array of parts with a space in between
                 print(" ".join(parts))
