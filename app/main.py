@@ -23,9 +23,14 @@ def main():
             # add all the params to the array, we will pass this in the next function
             for part in parts:
                 arr.append(part)
-            process = subprocess.Popen(arr, text= True)
-            print(process)
+            process = subprocess.Popen(arr,
+                                       stdout= subprocess.PIPE,
+                                       stderr= subprocess.PIPE, 
+                                       text= True)
             
+            process.wait()
+            output, error = process.communicate()
+            print(output.decode())
             
         
         else:    
