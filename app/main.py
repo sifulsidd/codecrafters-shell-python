@@ -28,7 +28,7 @@ def main():
                                        stderr= subprocess.PIPE, 
                                        text= True)
             
-            process.wait()
+            # process.wait()
             output, error = process.communicate()
             print(output)
             
