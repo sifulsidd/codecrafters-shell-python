@@ -19,7 +19,7 @@ def main():
         if file_path is not None:
             # first we find the value and then append python3 to show which python version we applying
             # then we pass in the executable function
-            arr = ["python3", file_path]
+            arr = [file_path]
             # add all the params to the array, we will pass this in the next function
             for part in parts:
                 arr.append(part)
