@@ -12,8 +12,8 @@ def main():
         new_command, *parts = command.split(" ")
         
         # first find executable and then find the file_path to that executable
-        executable = new_command + ".py"
-        file_path = shutil.which(executable)
+        # executable = new_command 
+        file_path = shutil.which(new_command)
         
         # first find if the path to the script even exists
         if file_path is not None:
