@@ -30,7 +30,7 @@ def main():
             
             process.wait()
             output, error = process.communicate()
-            print(output.decode())
+            print(output)
             
         
         else:    
