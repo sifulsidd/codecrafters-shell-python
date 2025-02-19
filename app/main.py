@@ -34,7 +34,7 @@ def main():
             # process.wait()
             # output, error = process.communicate()
             # print(output)
-            print(process)
+            print(process.decode())
         
         else:    
             match new_command:
