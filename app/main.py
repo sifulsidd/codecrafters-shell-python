@@ -23,15 +23,18 @@ def main():
             # add all the params to the array, we will pass this in the next function
             for part in parts:
                 arr.append(part)
-            process = subprocess.run(arr)
-                                    #    stdout= subprocess.PIPE,
+            process = subprocess.run(arr,
+                                     stdout= subprocess.PIPE,
+                                     text=True
+                                     )
+                                       
                                     #    stderr= subprocess.PIPE, 
                                     #    text= True)
             
             # process.wait()
             # output, error = process.communicate()
             # print(output)
-            print(process.decode())
+            print(process)
         
         else:    
             match new_command:
