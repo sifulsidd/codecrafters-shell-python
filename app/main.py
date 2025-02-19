@@ -31,9 +31,8 @@ def main():
                                     
             
             # process.wait()
-            output, error = process.communicate()
-            print(output.decode())
-            # print(process)
+            # print(output.decode())
+            print(process)
         
         else:    
             match new_command:
