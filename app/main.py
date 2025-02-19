@@ -24,17 +24,16 @@ def main():
             for part in parts:
                 arr.append(part)
             process = subprocess.run(arr,
-                                     stdout= subprocess.PIPE,
-                                     text=True
-                                     )
-                                       
-                                    #    stderr= subprocess.PIPE, 
-                                    #    text= True)
+                                    stdout= subprocess.PIPE,
+                                    stderr= subprocess.PIPE,
+                                    text=True
+                                    )
+                                    
             
             # process.wait()
-            # output, error = process.communicate()
-            # print(output)
-            print(process.decode())
+            output, error = process.communicate()
+            print(output.decode())
+            # print(process)
         
         else:    
             match new_command:
