@@ -32,7 +32,7 @@ def main():
             
             # process.wait()
             # print(output.decode())
-            print(process)
+            print(process.stdout)
         
         else:    
             match new_command:
